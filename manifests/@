@@ -1,0 +1,13 @@
+#
+class telegraf(
+  String $service_name = $telegraf::params::service_name,
+  String $service_enable = $telegraf::params::service_enable,
+  String $service_hasstatus = $telegraf::params::service_hasstatus,
+  String $service_hasrestart = $telegraf::params::service_hasrestart,
+  String $service_ensure = $telegraf::params::service_ensure,
+  String $config_source = $telegraf::params::config_source,
+) inherits ::telegraf::params {
+  class { ::telegraf::install }
+  -> class { ::telegraf::config }
+  ~ class { ::telegraf::service}
+}
