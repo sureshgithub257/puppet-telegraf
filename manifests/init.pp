@@ -6,6 +6,7 @@ class telegraf(
   Boolean $service_hasrestart = $telegraf::params::service_hasrestart,
   String $service_ensure = $telegraf::params::service_ensure,
   String $config_source = $telegraf::params::config_source,
+  String $server = $telegraf::params::server,
 ) inherits ::telegraf::params {
   class { '::telegraf::install': }
   -> class { '::telegraf::config': }
